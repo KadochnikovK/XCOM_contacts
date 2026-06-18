@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // ========== Данные городов ==========
     const cityData = {
         moscow: {
             offices: [
@@ -17,7 +16,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     };
 
-    // ========== Рендер контактов ==========
     function renderContacts(city) {
         const container = document.getElementById('contactsContainer');
         const data = cityData[city];
@@ -27,16 +25,27 @@ document.addEventListener("DOMContentLoaded", function () {
             container.innerHTML += `
                 <div class="contact-card">
                     <h3>${office.title}</h3>
-                    <div class="contact-detail"><i class="fas fa-map-marker-alt"></i><span>${office.address}</span></div>
-                    <div class="contact-detail"><i class="fas fa-phone-alt"></i><a href="tel:${office.phone.replace(/\s/g, '')}">${office.phone}</a></div>
-                    <div class="contact-detail"><i class="fas fa-envelope"></i><a href="mailto:${office.email}">${office.email}</a></div>
-                    <div class="contact-detail"><i class="fas fa-clock"></i><span>${office.schedule}</span></div>
+                    <div class="contact-detail contact-detail--phone">
+                        <i class="fas fa-phone-alt"></i>
+                        <a href="tel:${office.phone.replace(/\s/g, '')}">${office.phone}</a>
+                    </div>
+                    <div class="contact-detail contact-detail--email">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:${office.email}">${office.email}</a>
+                    </div>
+                    <div class="contact-detail contact-detail--address">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>${office.address}</span>
+                    </div>
+                    <div class="contact-detail contact-detail--schedule">
+                        <i class="fas fa-clock"></i>
+                        <span>${office.schedule}</span>
+                    </div>
                 </div>`;
         });
         document.getElementById('yandexMap').src = data.mapUrl;
     }
 
-    // ========== Сотрудники по подразделениям ==========
     const employees = {
         sales: [
             { name: "Клишин Виталий", position: "Руководитель отдела развития", phone: "+7 (495) 223-63-39", ext: "1113", photo: "https://randomuser.me/api/portraits/men/32.jpg" },
@@ -125,7 +134,6 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // ========== Функции модалки ==========
     function showModal(title, text, buttonText) {
         const modal = document.querySelector(".modal");
         const modalWindow = modal.querySelector(".modal__window");
@@ -152,9 +160,8 @@ document.addEventListener("DOMContentLoaded", function () {
         modal.onclick = (e) => { if (e.target === modal) closeModal(); };
     }
 
-    // ========== Валидация формы ==========
     function initFormValidation() {
-        const form = document.getElementById('contactForm');
+        const form = document.getElementById('feedback');
         if (!form) return;
 
         function clearErrors() {
@@ -244,7 +251,6 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // ========== Обработчики кнопок ==========
     function bindActionButtons() {
         const scrollToForm = () => { document.querySelector('.form-wrapper').scrollIntoView({ behavior: 'smooth' }); };
         document.getElementById('heroRequestBtn')?.addEventListener('click', scrollToForm);
@@ -252,7 +258,6 @@ document.addEventListener("DOMContentLoaded", function () {
         document.querySelectorAll('.direction-btn, .tender-btn').forEach(btn => btn.addEventListener('click', scrollToForm));
     }
 
-    // ========== Переключение города ==========
     function initCitySwitch() {
         const cityBtns = document.querySelectorAll('.city-btn');
         cityBtns.forEach(btn => {
@@ -264,7 +269,6 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // ========== Инициализация ==========
     renderContacts('moscow');
     buildDepartments();
     initCitySwitch();
