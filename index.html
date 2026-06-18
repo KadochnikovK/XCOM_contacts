@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+    <title>Контакты X-Com | Системный интегратор</title>
+    <link rel="stylesheet" href="assets/plugins/animations/animations.css" />
+    <link rel="stylesheet" href="assets/plugins/swiper/swiper.css" />
+    <link rel="stylesheet" href="assets/plugins/fontawesome/css/all.min.css" />
+    <link rel="stylesheet" href="assets/style.css" />
+    <script src="assets/plugins/swiper/swiper.js"></script>
+</head>
+
+<body class="body">
+
+    
+    <section class="hero-contacts container">
+        <div class="content hero-contacts__content">
+            <h1 class="headline hero-contacts__headline">Мы всегда на связи</h1>
+            <div class="hero-contacts__buttons">
+                <a href="#feedback" class="button button--main">
+                    <span class="button__text">Оставить заявку</span>
+                </a>
+                <a href="mailto:send@xcom.ru" class="button button--outline">
+                    <span class="button__text">Написать на почту</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <div class="city-switch container">
+        <div class="content city-switch__content">
+            <div class="city-toggle">
+                <button class="city-btn active" data-city="moscow">Москва</button>
+                <button class="city-btn" data-city="spb">Санкт-Петербург</button>
+            </div>
+        </div>
+    </div>
+
+  
+    <section class="contacts container">
+        <div class="content contacts__content">
+            <div class="cards-grid" id="contactsContainer"></div>
+        </div>
+    </section>
+
+
+    <section class="map container">
+        <div class="content map__content">
+            <div class="map-container">
+                <iframe id="yandexMap" width="100%" height="100%" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="directions container">
+        <div class="content directions__content">
+            <h2 class="headline directions__headline">Куда обратиться?</h2>
+            <div class="directions-grid" id="directionsGrid">
+                <div class="direction-card">
+                    <div class="direction-icon"><i class="fa-solid fa-cart-shopping"></i></div>
+                    <h4>Закупка оборудования</h4>
+                    <p>Получить коммерческое предложение</p>
+                    <button class="direction-btn">Связаться</button>
+                </div>
+                <div class="direction-card">
+                    <div class="direction-icon"><i class="fa-solid fa-microchip"></i></div>
+                    <h4>Системная интеграция</h4>
+                    <p>Проекты по инфраструктуре и ИБ</p>
+                    <button class="direction-btn">Оставить заявку</button>
+                </div>
+                <div class="direction-card">
+                    <div class="direction-icon"><i class="fa-solid fa-headset"></i></div>
+                    <h4>Сервис и поддержка</h4>
+                    <p>Гарантийное обслуживание</p>
+                    <button class="direction-btn">Обратиться</button>
+                </div>
+                <div class="direction-card">
+                    <div class="direction-icon"><i class="fa-solid fa-gavel"></i></div>
+                    <h4>Тендеры</h4>
+                    <p>Участие в конкурсах и закупках</p>
+                    <button class="direction-btn">Перейти</button>
+                </div>
+                <div class="direction-card">
+                    <div class="direction-icon"><i class="fa-solid fa-truck"></i></div>
+                    <h4>Поставщикам</h4>
+                    <p>Вопросы сотрудничества</p>
+                    <button class="direction-btn">Написать</button>
+                </div>
+                <div class="direction-card">
+                    <div class="direction-icon"><i class="fa-solid fa-briefcase"></i></div>
+                    <h4>Карьера</h4>
+                    <p>Вакансии и трудоустройство</p>
+                    <button class="direction-btn">Подробнее</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+  
+    <section class="tender container">
+        <div class="content tender__content">
+            <div class="tender-card">
+                <div>
+                    <h3>Участвуете в закупках?</h3>
+                    <p>Наш тендерный отдел поможет подготовить предложение и необходимые документы.</p>
+                </div>
+                <button class="tender-btn">Перейти в раздел тендеров →</button>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="managers container">
+        <div class="content managers__content">
+            <h2 class="headline managers__headline">Руководители и ответственные лица</h2>
+            <div id="accordionRoot"></div>
+        </div>
+    </section>
+
+
+    <section class="registration container" id="feedback">
+        <div class="content registration__content">
+            <h2 class="headline headline--center">Заполните форму</h2>
+            <form class="form" id="main-form" action="#">
+                <div class="form__item">
+                    <label for="fullName" class="form__label">Имя</label>
+                    <input type="text" class="form__input" placeholder=" " name="fullName" id="fullName" required />
+                </div>
+
+                <div class="form__item">
+                    <label for="company" class="form__label">Компания</label>
+                    <input type="text" class="form__input" placeholder=" " name="company" id="company" />
+                </div>
+
+                <div class="form__item">
+                    <label for="phone" class="form__label">Телефон</label>
+                    <input type="tel" class="form__input" placeholder="" name="phone" id="phone" required />
+                </div>
+
+                <div class="form__item">
+                    <label for="email" class="form__label">E-mail</label>
+                    <input type="email" class="form__input" placeholder="" name="email" id="email" required />
+                </div>
+
+                <div class="form__item">
+                    <label for="taxId" class="form__label">ИНН</label>
+                    <input type="text" class="form__input" placeholder=" " name="taxId" id="taxId" />
+                </div>
+
+                <div class="form__item">
+                    <label for="comment" class="form__label">Комментарий</label>
+                    <textarea class="form__input" placeholder=" " name="comment" id="comment" rows="3"></textarea>
+                </div>
+
+                <div class="form__item form__item--checkbox">
+                    <input type="checkbox" id="privacy-policy" name="privacy-policy" class="form__checkbox" required />
+                    <label for="privacy-policy" class="form__checkbox-label">Я согласен на обработку персональных данных
+                        *</label>
+                    <div class="error-message" style="display: none"></div>
+                </div>
+
+                <button type="submit" class="form__button button">
+                    <img src="assets/images/send.svg" alt="" />
+                    Отправить заявку
+                </button>
+                <p class="note">Свяжемся с Вами в течение 10 минут</p>
+            </form>
+        </div>
+    </section>
+  
+    
+
+    <div class="modal animate__animated" style="display: none">
+        <div class="modal__window animate__animated">
+            <div class="modal__close">
+                <span></span>
+                <span></span>
+            </div>
+            <div class="modal__content">
+                <p class="modal__headline"></p>
+                <p class="modal__text"></p>
+                <a class="modal__button button button--main"></a>
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/js/modal.js"></script>
+    <script src="assets/js/menu.js"></script>
+    <script>
+        
+        const cityData = {
+            moscow: {
+                offices: [
+                    { title: "Центральный офис", address: "125212, г. Москва, Кронштадтский бульвар, 3А, 4-й этаж", phone: "+7 (800) 333-87-09", email: "send@xcom.ru", schedule: "Пн–Пт: 09:00 – 18:00" },
+                    { title: "Склад и логистика", address: "141701 МО, г. Долгопрудный, Транспортный проезд, д. 6а", phone: "+7 (800) 333-87-09", email: "logistics@xcom.ru", schedule: "Пн–Пт: 09:00 – 17:00" }
+                ],
+                mapUrl: "https://yandex.ru/map-widget/v1/-/CCUueEFBGC"
+            },
+            spb: {
+                offices: [
+                    { title: "Офис в Санкт-Петербурге", address: "195027, г. Санкт-Петербург, ул. Магнитогорская, д. 30, лит. А", phone: "+7 (812) 740-11-20", email: "spb@xcom.ru", schedule: "Пн–Пт: 09:30 – 18:00" },
+                    { title: "Склад и логистика СПб", address: "г. Санкт-Петербург, ул. Коммуны, 67", phone: "+7 (812) 740-11-20", email: "spb.logistics@xcom.ru", schedule: "Пн–Пт: 10:00 – 17:00" }
+                ],
+                mapUrl: "https://yandex.ru/map-widget/v1/-/CGdP4QZB"
+            }
+        };
+
+        function renderContacts(city) {
+            const container = document.getElementById('contactsContainer');
+            const data = cityData[city];
+            if (!container) return;
+            container.innerHTML = '';
+            data.offices.forEach(office => {
+                container.innerHTML += `
+            <div class="contact-card">
+                <h3>${office.title}</h3>
+                <!-- Телефон и почта — наверху, крупнее и с акцентом -->
+                <div class="contact-detail contact-detail--phone">
+                    <i class="fas fa-phone-alt"></i>
+                    <a href="tel:${office.phone.replace(/\s/g, '')}">${office.phone}</a>
+                </div>
+                <div class="contact-detail contact-detail--email">
+                    <i class="fas fa-envelope"></i>
+                    <a href="mailto:${office.email}">${office.email}</a>
+                </div>
+                <!-- Адрес и часы работы — ниже -->
+                <div class="contact-detail contact-detail--address">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>${office.address}</span>
+                </div>
+                <div class="contact-detail contact-detail--schedule">
+                    <i class="fas fa-clock"></i>
+                    <span>${office.schedule}</span>
+                </div>
+            </div>
+        `;
+            });
+            document.getElementById('yandexMap').src = data.mapUrl;
+        }
+        const employees = {
+            sales: [
+                { name: "Клишин Виталий", position: "Руководитель отдела развития", phone: "+7 (495) 223-63-39", ext: "1113", photo: "https://randomuser.me/api/portraits/men/32.jpg" },
+                { name: "Кретов Сергей", position: "Менеджер отдела развития", phone: "+7 (495) 223-63-39", ext: "1199", photo: "https://randomuser.me/api/portraits/men/45.jpg" },
+                { name: "Прудников Андрей", position: "Менеджер отдела развития", phone: "+7 (495) 223-63-39", ext: "1141", photo: "https://randomuser.me/api/portraits/men/22.jpg" }
+            ],
+            key_accounts: [
+                { name: "Олег Борунов", position: "Ведущий менеджер", phone: "+7 (495) 223-63-39", ext: "1181", photo: "https://randomuser.me/api/portraits/men/41.jpg" },
+                { name: "Дмитрий Самойлов", position: "Ведущий менеджер", phone: "+7 (495) 223-63-39", ext: "1186", photo: "https://randomuser.me/api/portraits/men/15.jpg" },
+                { name: "Павел Романов", position: "Менеджер", phone: "+7 (495) 223-63-39", ext: "1155", photo: "https://randomuser.me/api/portraits/men/59.jpg" },
+                { name: "Руслан Брагин", position: "Менеджер", phone: "+7 (495) 223-63-39", ext: "1114", photo: "https://randomuser.me/api/portraits/men/67.jpg" }
+            ],
+            tender: [
+                { name: "Шуговитова Елена", position: "Руководитель тендерного отдела", phone: "+7 (495) 223-63-39", ext: "1156", photo: "https://randomuser.me/api/portraits/women/68.jpg" },
+                { name: "Захаров Сергей", position: "Менеджер тендерного отдела", phone: "+7 (495) 223-63-39", ext: "1195", photo: "https://randomuser.me/api/portraits/men/33.jpg" }
+            ],
+            support: [
+                { name: "Илья Васильев", position: "Руководитель отдела комплексной поддержки IT-инфраструктуры", phone: "+7 (495) 223-63-39", ext: "4262", photo: "https://randomuser.me/api/portraits/men/74.jpg" },
+                { name: "Оксана Сахарова", position: "Менеджер поддержки", phone: "+7 (495) 223-63-39", ext: "3100", photo: "https://randomuser.me/api/portraits/women/25.jpg" }
+            ],
+            oil_gas: [
+                { name: "Зайченко Дмитрий", position: "Директор департамента по работе с нефтегазовой отраслью", phone: "+7 (495) 223-63-39", ext: "1187", photo: "https://randomuser.me/api/portraits/men/84.jpg" },
+                { name: "Николай Богданов", position: "Ведущий менеджер", phone: "+7 (495) 223-63-39", ext: "1126", photo: "https://randomuser.me/api/portraits/men/17.jpg" }
+            ]
+        };
+
+        function buildDepartments() {
+            const container = document.getElementById('accordionRoot');
+            if (!container) return;
+            const departments = [
+                { id: "dept1", title: "Департамент продаж", key: "sales" },
+                { id: "dept2", title: "Менеджеры по работе с ключевыми заказчиками", key: "key_accounts" },
+                { id: "dept3", title: "Тендерный отдел", key: "tender" },
+                { id: "dept4", title: "Департамент комплексной поддержки ИТ инфраструктуры", key: "support" },
+                { id: "dept5", title: "Департамент по работе с нефтегазовой отраслью", key: "oil_gas" }
+            ];
+            let html = '';
+            departments.forEach(dept => {
+                const empList = employees[dept.key];
+                if (!empList) return;
+                let employeesHtml = '';
+                empList.forEach(emp => {
+                    const photoHtml = emp.photo ? `<img src="${emp.photo}" alt="${emp.name}">` : `<span>${emp.name.charAt(0)}</span>`;
+                    employeesHtml += `
+                        <div class="manager-item">
+                            <div class="manager-photo">${photoHtml}</div>
+                            <div class="manager-info">
+                                <h4>${emp.name}</h4>
+                                <div class="manager-position">${emp.position}</div>
+                            </div>
+                            <div class="manager-contact">
+                                <a href="tel:${emp.phone.replace(/\s/g, '')}">${emp.phone}</a>
+                                <span class="ext">доб. ${emp.ext}</span>
+                            </div>
+                        </div>
+                    `;
+                });
+                html += `
+                    <div class="department-accordion">
+                        <div class="accordion-header" data-id="${dept.id}">
+                            <span>${dept.title}</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="accordion-body" id="${dept.id}Body">
+                            <div class="managers-list">${employeesHtml}</div>
+                        </div>
+                    </div>
+                `;
+            });
+            container.innerHTML = html;
+
+            document.querySelectorAll('.accordion-header').forEach(header => {
+                const bodyId = header.getAttribute('data-id') + 'Body';
+                const body = document.getElementById(bodyId);
+                const icon = header.querySelector('i');
+                if (body) body.style.display = 'none';
+                header.addEventListener('click', () => {
+                    if (body.style.display === 'block') {
+                        body.style.display = 'none';
+                        icon.style.transform = 'rotate(0deg)';
+                    } else {
+                        body.style.display = 'block';
+                        icon.style.transform = 'rotate(180deg)';
+                    }
+                });
+            });
+        }
+
+        function initForm() {
+            const form = document.getElementById('contactForm');
+            if (!form) return;
+
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+                const checkbox = document.getElementById('feedback-privacy-policy');
+                if (!checkbox.checked) {
+                    const error = checkbox.closest('.form__item').querySelector('.error-message');
+                    if (error) {
+                        error.textContent = 'Необходимо ваше согласие';
+                        error.style.display = 'block';
+                    }
+                    return;
+                }
+               
+                const modal = document.querySelector('.modal');
+                if (modal) {
+                    modal.style.display = 'flex';
+                    modal.querySelector('.modal__headline').textContent = 'Заявка отправлена';
+                    modal.querySelector('.modal__text').textContent = 'Мы свяжемся с вами в течение 10 минут';
+                    modal.querySelector('.modal__button').textContent = 'Хорошо';
+                    modal.querySelector('.modal__button').onclick = function () {
+                        modal.style.display = 'none';
+                    };
+                    modal.querySelector('.modal__close').onclick = function () {
+                        modal.style.display = 'none';
+                    };
+                    modal.onclick = function (e) {
+                        if (e.target === modal) modal.style.display = 'none';
+                    };
+                }
+                form.reset();
+            });
+
+        
+            form.querySelectorAll('input, textarea').forEach(field => {
+                field.addEventListener('input', function () {
+                    const item = this.closest('.form__item');
+                    if (item) {
+                        const error = item.querySelector('.error-message');
+                        if (error) error.style.display = 'none';
+                    }
+                });
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            renderContacts('moscow');
+            buildDepartments();
+            initForm();
+
+       
+            const cityBtns = document.querySelectorAll('.city-btn');
+            cityBtns.forEach(btn => {
+                btn.addEventListener('click', function () {
+                    cityBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    renderContacts(this.dataset.city);
+                });
+            });
+
+        
+            document.querySelectorAll('.direction-btn, .tender-btn, .hero-contacts__buttons .button--main').forEach(btn => {
+                btn.addEventListener('click', function (e) {
+                    if (!this.closest('.hero-contacts__buttons')) {
+                        e.preventDefault();
+                    }
+                    document.getElementById('feedback').scrollIntoView({ behavior: 'smooth' });
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
