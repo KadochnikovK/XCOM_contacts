@@ -135,12 +135,12 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function showModal(title, text, buttonText) {
-        const modal = document.querySelector(".modal");
-        const modalWindow = modal.querySelector(".modal__window");
-        const modalHeadline = modal.querySelector(".modal__headline");
-        const modalText = modal.querySelector(".modal__text");
-        const modalButton = modal.querySelector(".modal__button");
-        const modalClose = modal.querySelector(".modal__close");
+        const modal = document.querySelector(".contacts-page-modal");
+        const modalWindow = modal.querySelector(".contacts-page-modal__window");
+        const modalHeadline = modal.querySelector(".contacts-page-modal__headline");
+        const modalText = modal.querySelector(".contacts-page-modal__text");
+        const modalButton = modal.querySelector(".contacts-page-modal__button");
+        const modalClose = modal.querySelector(".contacts-page-modal__close");
 
         modalHeadline.textContent = title;
         modalText.textContent = text;
